@@ -1,0 +1,45 @@
+{
+  "name": "FactorySeek",
+  "version": "1.0",
+  "description": "汇聚海量供应链资源",
+  "manifest_version": 3,
+  "action": {
+    "default_icon": {
+    }
+  },
+  "permissions": [
+    "activeTab",  
+    "webRequest"
+  ],  
+  "content_scripts": [
+    {
+      "matches": ["https://*.1688.com/factory/card.html*"],
+      "js": ["/js/install.js","/js/network.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://s.1688.com/selloffer/offer_search.htm*"],
+      "js": ["/js/install_offer_search.js","/js/offer_search.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://h5api.m.1688.com/h5/mtop.mbox.fc.common.gateway/*"],
+      "js": ["/js/install.js","/js/gate.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://www.aliexpress.us/item/*"],
+      "js": ["/js/aliexpress.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "js/*.js"     
+      ],
+      "matches": ["<all_urls>"],
+      "run_at": "document_start"
+    }
+  ]
+}

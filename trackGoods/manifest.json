@@ -1,0 +1,32 @@
+{
+  "name": "TrackGoods",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "/html/popup/popup.html",
+    "default_icon": {
+    }
+  },
+  "permissions": [
+    "activeTab",  
+    "webRequest"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://*.1688.com/page/*","https://*.1688.com/factory/*"],
+      "js": ["/js/content/page.js", "/js/content/install.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "js/inject/*"     
+      ],
+      "matches": ["<all_urls>"],
+      "css": ["style.css"],
+      "js": ["script.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
