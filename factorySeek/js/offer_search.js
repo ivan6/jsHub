@@ -11,7 +11,10 @@ offering();
 function uploadofferlist(str)
 {
     try {
-        let response =  fetch("https://spy.lazyor.com/index/task/updateOfferlist", {
+        
+      console.log('提交数据：', str);
+
+      fetch("https://spy.lazyor.com/index/task/updateOfferlist", {
           headers: {
             "Accept": "application/json",
             // Firefox 中不需要单独设置 Access-Control-Allow-Origin
@@ -22,20 +25,24 @@ function uploadofferlist(str)
           }),
           mode: "no-cors",
           method: "POST"
-        });
+        }).then(
+          response=>{
+            if (response.ok) {
+              let data =  response.json;
+    
+              console.log(' update data:', data);
+            } else {
+              console.log("update 错误: " + response.json);
+            }
+          }
+        );
         
-        console.log('提交数据：', str);
         
-        if (response.status === 200) {
-          let data =  response.json();
-
-          console.log(' update data:', data);
-        } else {
-          console.log("update 错误: " + response.status);
-        }
+        
+        
 
       } catch (err) {
-        console.log("update 错误:" + err);
+        console.log("update 错误-:" + err);
       }
 
 }
