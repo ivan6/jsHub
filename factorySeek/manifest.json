@@ -26,10 +26,15 @@
       "matches": ["https://h5api.m.1688.com/h5/mtop.mbox.fc.common.gateway/*"],
       "js": ["/js/install.js","/js/gate.js"],
       "run_at": "document_start"
-    },
+    },    
     {
       "matches": ["https://www.aliexpress.us/item/*"],
       "js": ["/js/aliexpress.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://novelkiss.com/novel/*/*"],
+      "js": ["/js/install_novelkiss.js","/js/novelkiss.js"],
       "run_at": "document_start"
     }
   ],
