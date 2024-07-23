@@ -23,6 +23,11 @@
       "run_at": "document_start"
     },
     {
+      "matches": ["https://*.1688.com/page/contactinfo.htm*"],
+      "js": ["/js/install_contact.js","/js/contact.js"],
+      "run_at": "document_start"
+    },
+    {
       "matches": ["https://h5api.m.1688.com/h5/mtop.mbox.fc.common.gateway/*"],
       "js": ["/js/install.js","/js/gate.js"],
       "run_at": "document_start"
@@ -35,6 +40,11 @@
     {
       "matches": ["https://novelkiss.com/novel/*/*"],
       "js": ["/js/install_novelkiss.js","/js/novelkiss.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://www.amz123.com/*seller-*"],
+      "js": ["/js/install_amz123.js","/js/amz123.js"],
       "run_at": "document_start"
     }
   ],
