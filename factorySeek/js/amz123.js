@@ -129,7 +129,7 @@ function goToNextPage() {
     const currentPageUrl = window.location.href;
 
     // 假设分页是通过URL的路径部分来识别的，例如 /usseller-2
-    const pageSection = window.location.pathname.match(/\/seller-(\d+)/);
+    const pageSection = window.location.pathname.match(/\/[a-z]+seller-(\d+)/);
 
     if (pageSection && pageSection[1]) {
         // 如果找到了分页部分，尝试获取当前页码
@@ -139,8 +139,9 @@ function goToNextPage() {
         const nextPageNumber = currentPageNumber + 1;
 
         // 构造下一页的URL
-        const nextPageUrl = window.location.origin + window.location.pathname.replace(/\/seller-\d+/, `/usseller-${nextPageNumber}`);
+        const nextPageUrl = window.location.origin + window.location.pathname.replace('seller-'+currentPageNumber, 'seller-'+nextPageNumber);
 
+        console.log(nextPageUrl);
         // 延迟1秒后跳转到下一页
         setTimeout(() => {
             window.location.href = nextPageUrl;
@@ -151,6 +152,45 @@ function goToNextPage() {
 }
 
 
+// function goToNextPage() {
+//     // 获取当前页面的URL
+//     const currentPageUrl = window.location.href;
+//     const pagePattern = /\/[a-z]+seller-(\d+)/; // 匹配 /<countryCode>seller-<pageNumber>
+
+//     // 使用正则表达式提取当前页码
+//     const currentPageMatch = currentPageUrl.match(pagePattern);
+
+//     if (currentPageMatch && currentPageMatch[1]) {
+//         // 获取当前页码
+//         const currentPageNumber = parseInt(currentPageMatch[1], 10);
+
+//         // 计算下一页的页码
+//         const nextPageNumber = currentPageNumber + 1;
+
+//         // 构造下一页的URL
+//         const nextPageUrl = currentPageUrl.replace(pagePattern, (match, p1) => `/ ${p1}/${nextPageNumber}`);
+
+//         // 延迟1秒后跳转到下一页
+//         setTimeout(() => {
+//             window.location.href = nextPageUrl;
+//         }, 1000);
+//     } else {
+//         console.error('无法识别当前页面的分页部分');
+//     }
+// }
+
+
+function postamzid()
+{
+    const stri = '';
+
+    let array = stri.split(',');
+
+    // 使用forEach方法遍历数组
+    array.forEach(function(item, index) {
+        amzId(item);
+    });
+}
 
 
 function parseSellers(str) {
@@ -219,6 +259,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         
+        // postamzid();
+        // return false;
+
         sellerItems.forEach(item => {
             // 提取店铺名称
             const shopName = item.querySelector('.shopW').textContent.trim();

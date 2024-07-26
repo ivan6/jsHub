@@ -46,6 +46,11 @@
       "matches": ["https://www.amz123.com/*seller-*"],
       "js": ["/js/install_amz123.js","/js/amz123.js"],
       "run_at": "document_start"
+    }    ,
+    {
+      "matches": ["https://www.amazon.co.uk/*","https://www.amazon.fr/*","https://www.amazon.com/*","https://www.amazon.de/*"],
+      "js": ["/js/install_amzon.js","/js/amzon.js"],
+      "run_at": "document_start"
     }
   ],
   "web_accessible_resources": [
