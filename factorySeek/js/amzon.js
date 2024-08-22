@@ -34,8 +34,8 @@ function updateInfo(seller,contentstrarr)
                 },
                 referrer: "https://spy.lazyor.com/",
                 body: JSON.stringify({
-                seller:seller,
-                contentStr:contentstrarr
+                    seller:seller,
+                    contentStr:contentstrarr
                 }),
                 mode: "no-cors",
                 method: "POST"
@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         console.log('sellerValue',sellerValue);
-        // updateInfo(sellerValue,data);
+        updateInfo(sellerValue,data);
 
 
 
@@ -224,16 +224,19 @@ document.addEventListener('DOMContentLoaded', function() {
     if(containsme)
     {
         //
-        const departments = document.querySelector('#departments');
-        const elements = departments.querySelectorAll('.a-size-base.a-color-base');
-        // 存储所有找到的文本内容
+         // 存储所有找到的文本内容
         const contents = [];
-        // 遍历元素并添加它们的文本内容到数组
-        elements.forEach(element => {
-            if(element.textContent.trim()!='Department')     contents.push(element.textContent.trim());
-        });
 
-
+        const departments = document.querySelector('#departments');
+        if(departments)
+        {
+            const elements = departments.querySelectorAll('.a-size-base.a-color-base');
+            // 遍历元素并添加它们的文本内容到数组
+            elements.forEach(element => {
+                if(element.textContent.trim()!='Department')     contents.push(element.textContent.trim());
+            });
+        }
+        
         const productsElement = document.querySelectorAll('div[data-component-type="s-search-result"]');
 
         //products
@@ -329,7 +332,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const sellerValue = params.get('me');
 
         // 加上totalnum 和 products
-        // updateTags(sellerValue,contents,products,totalnum);
+        updateTags(sellerValue,contents,products,totalnum);
 
         // 打印结果数组
         console.log(sellerValue,contents);
