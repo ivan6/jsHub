@@ -51,6 +51,11 @@
       "matches": ["https://www.amazon.co.uk/*","https://www.amazon.fr/*","https://www.amazon.com/*","https://www.amazon.de/*"],
       "js": ["/js/install_amzon.js","/js/amzon.js"],
       "run_at": "document_start"
+    }   ,
+    {
+        "matches": ["https://myip.ms/browse/sites/*"],
+        "run_at": "document_start",
+        "js": ["/js/install_myip.js","/js/myip.js"]      
     }
   ],
   "web_accessible_resources": [
